@@ -9,7 +9,7 @@ This document defines Superpower's official value proposition, tone of voice, an
 ## Value Proposition
 
 ### Core Offering
-Superpower is a preventive health company offering comprehensive biomarker testing starting at **$199/year** (most states) or **$499/year** (NY & NJ only).
+Superpower is a preventive health company offering comprehensive biomarker testing starting at **$199/year** (most states) or **$499/year** (NY & NJ: $400/year + $99 mandatory at-home draw fee).
 
 **Positioning:** "What could cost you $15,000 is $199"
 
@@ -122,7 +122,7 @@ The website does NOT use 5-8 word maximum sentences. Actual examples:
 ### ✅ APPROVED Claims (Verified from superpower.com)
 - Early detection capabilities for 1,000+ conditions
 - 100+ biomarkers tested (120+ available with add-ons)
-- $199/year (most states) or $499/year (NY & NJ)
+- $199/year (most states) or $499/year (NY & NJ: $400/year + $99 mandatory at-home draw fee)
 - Price comparisons: vs $400-$499/year at Function Health, vs $10k-$100k/year concierge practices
 - Clinical team credentials: Harvard, UCLA, Stanford MDs
 - 3,000+ Quest Diagnostics partner locations nationwide

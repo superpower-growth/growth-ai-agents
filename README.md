@@ -4,7 +4,7 @@ Your AI-powered growth team in a repo. Because writing compliant health-tech cop
 
 ## What's This?
 
-AI agents for Superpower's Growth org (marketing, product, analytics—the whole crew). Built as a Claude Code plugin, these agents are like having Eugene Schwartz and an FDA compliance lawyer on speed dial.
+AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agents are like having Eugene Schwartz and an FDA compliance lawyer on speed dial.
 
 **What's Inside:**
 - **Meta Ad Copywriter** 📝 - Writes ads that convert using frameworks from the 1960s that still work better than "growth hacks"
@@ -12,6 +12,24 @@ AI agents for Superpower's Growth org (marketing, product, analytics—the whole
 - **Brand Guide** 📖 - The one doc that stops arguments about whether it's $199 or $200
 
 ## Quick Start
+
+### Team Setup (One-Time)
+
+**3 commands. That's it.**
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/superpowerdotcom/growth-ai-agents
+cd growth-ai-agents
+
+# 2. Run setup script (prompts for API keys)
+./setup.sh
+
+# 3. Install plugin in Claude Code
+/plugin install https://github.com/superpowerdotcom/growth-ai-agents
+```
+
+**Done!** The agents are now available in Claude Code.
 
 ### Using the Agents
 
@@ -90,7 +108,7 @@ Everything in the brand guide comes from superpower.com, not:
 
 Actual verified claims:
 - ✅ 100+ biomarkers in 1 blood draw
-- ✅ $199/year (most states), $499/year (NY & NJ)
+- ✅ $199/year (most states), $499/year (NY & NJ: $400/year + $99 mandatory at-home draw fee)
 - ✅ 24/7 access to Superpower's clinical team
 - ✅ Protocols co-created with Harvard, UCLA & Stanford MDs
 - ✅ Early detection capabilities for 1,000+ conditions
@@ -103,40 +121,17 @@ Lead with what they actually want:
 - ❌ "100+ biomarkers tested" (features)
 - ✅ "Know exactly why you're tired. Fix it in 90 days." (outcomes)
 
-## Agent Usage Examples
-
-### Meta Ad Copywriter
-
-**Input:** Ad creative showing iPhone with Superpower dashboard
-
-**Output:** 3 copy variations matching ICP awareness stage:
-1. Power & Control angle - "Complete health visibility. Finally."
-2. Avoiding Uncertainty angle - "Stop guessing. Start knowing."
-3. Health Optimization angle - "Optimize with real data"
-
-Each variation includes:
-- ICP analysis with demographics and psychographics
-- 1-2 core desires identified from 17 fundamental desires
-- Copy structured for awareness stage (Problem/Solution/Product/Most Aware)
-- Staccato rhythm formatting (10-15 word sentences)
-- 3-4 benefits with ✅ emoji
-- Approved claims language only
-
-### Clinical Claims Analyst
-
-**Input:** Draft ad copy with health claims
-
-**Output:** Compliance review with:
-- Overall risk assessment (Low/Medium/High)
-- YELLOW flags with slight adjustments for defensibility
-- RED flags with 3 aggressive-but-compliant rewrites
-- Strategic recommendations for maintaining conversion power
-
 ## MCP Server Integration
 
-Configured in `plugin.json`:
-- **Notion MCP**: Requires `NOTION_API_KEY` environment variable
-- **PostHog MCP**: Requires `POSTHOG_API_KEY` and `POSTHOG_PROJECT_ID`
+The setup script automatically configures these MCP servers:
+- **Notion MCP**: For accessing workspace documentation
+- **PostHog MCP**: For product analytics and insights
+
+API keys are configured during `setup.sh` and stored in your shell config (`~/.zshrc` or `~/.bashrc`).
+
+**Where to get your keys:**
+- Notion: https://www.notion.so/my-integrations
+- PostHog: https://app.posthog.com/settings/user-api-keys
 
 ## Compliance Red Lines
 

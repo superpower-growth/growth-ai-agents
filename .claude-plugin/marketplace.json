@@ -1,0 +1,15 @@
+{
+  "name": "superpower-growth-marketplace",
+  "version": "1.0.0",
+  "description": "AI agents for health-tech growth marketing",
+  "owner": {
+    "name": "Superpower Growth"
+  },
+  "plugins": [
+    {
+      "name": "superpower-growth-agents",
+      "source": "./plugins/superpower-growth-agents",
+      "description": "AI agents for health-tech growth marketing"
+    }
+  ]
+}

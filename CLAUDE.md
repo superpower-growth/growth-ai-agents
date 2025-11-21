@@ -14,22 +14,28 @@ This repository contains **AI agents and brand guidelines** for Superpower's gro
 ## Directory Structure
 
 ```
-.claude-plugin/               # Organization-wide shared resources
-├── brand-guide.md           # Single source of truth for Superpower's value props, approved claims, and messaging
-├── agents/
-│   ├── meta-ad-copywriter.md        # Writes Meta ad copy using Eugene Schwartz frameworks + 17 human desires
-│   └── clinical-claims-analyst.md   # Reviews health claims for FDA/FTC compliance
-└── plugin.json              # MCP server configuration (Notion, PostHog)
-
-.claude/                     # Local user configuration (currently empty)
-└── agents/                  # Empty - agents moved to .claude-plugin for sharing
+growth-ai-agents/
+├── marketplace.json         # Marketplace manifest for plugin distribution
+├── plugins/
+│   └── superpower-growth-agents/    # Main plugin directory
+│       ├── plugin.json              # Plugin metadata & MCP server configuration
+│       ├── brand-guide.md          # Single source of truth for Superpower messaging
+│       ├── agents/                 # Custom AI agents
+│       │   ├── meta-ad-copywriter.md        # Meta ad copy using Eugene Schwartz frameworks
+│       │   ├── clinical-claims-analyst.md   # Health claims compliance reviewer
+│       │   └── static-ad-brief-writer.md    # Creative brief generator with Reddit research
+│       ├── marketing-personas.md    # ICP definitions and targeting guides
+│       ├── meta-ad-formats.md      # Meta ad format specifications
+│       └── steven-reiss-16-desires.md  # Steven Reiss desire framework reference
+└── .claude/                 # Local user configuration
+    └── agents/              # Local development agents
 ```
 
 ## Core Architecture Principles
 
 ### 1. Brand Guide as Single Source of Truth
 
-**ALL agents reference** `.claude-plugin/brand-guide.md` for:
+**ALL agents reference** `plugins/superpower-growth-agents/brand-guide.md` for:
 - Value propositions and pricing
 - Approved vs. prohibited health claims language
 - Clinical team credentials and verified social proof
@@ -53,11 +59,59 @@ This repository contains **AI agents and brand guidelines** for Superpower's gro
 - Never removes claims - always provides compliant alternatives
 - Rapid analysis in under 4 minutes
 
+**static-ad-brief-writer Agent:**
+- Creates comprehensive static ad briefs for designers
+- Performs Reddit research to find authentic audience pain points
+- Maps messaging to Steven Reiss 16 fundamental desires
+- Recommends Meta ad formats (carousel, single image, video)
+- Structures creative briefs with target template format
+
 ### 3. MCP Server Integration
 
 Configured in `plugin.json`:
 - **Notion MCP**: Requires `NOTION_API_KEY` env var
 - **PostHog MCP**: Requires `POSTHOG_API_KEY` and `POSTHOG_PROJECT_ID` env vars
+
+## Superpower Analytics Guide
+
+### PII Protection Guidelines
+
+**⚠️ CRITICAL: Avoid Querying Individual-Level PII**
+
+**NEVER query:** `email`, `first_name`, `last_name`, `name`, `phone`, `birthday`, individual `person_id` in result sets
+
+**Always aggregate:** Use `count(DISTINCT person_id)`, `sum()`, `avg()` grouped by state/week/month - NO individual rows
+
+**Best practices:**
+- Always use state fallback: `coalesce(person.properties.state, person.properties.$geoip_subdivision_1_code)`
+- Filter incomplete weeks: `WHERE timestamp < toStartOfWeek(now())`
+- Convert cents to dollars: `properties.value / 100`
+- Filter zero values: `WHERE properties.value > 0`
+
+### PostHog Data Model Essentials
+
+**Key Events:**
+- `USER_CREATED` - New user signup (use for user counts, ARPU denominators)
+- `subscription_created` - New subscription (value in cents: 19900=$199, 39900=$399)
+- `order_upgraded` - Subscription upgrades (18900-19900 cents)
+- `order_created` - Lab tests (21000-188600 cents)
+- `$pageview` - Page views (use `$initial_current_url` for landing page attribution)
+- `checkout_completed` - E-commerce (EXCLUDED due to duplicate tracking issues)
+
+**State attribution:** `coalesce(person.properties.state, person.properties.$geoip_subdivision_1_code)` (98%+ coverage)
+
+**Revenue formula:**
+```sql
+sum(if(properties.value > 0, properties.value / 100, 0)) as revenue
+FROM events WHERE event = 'subscription_created'
+```
+
+**ARPU:** subscription_created revenue / USER_CREATED count (by week + state)
+
+**Data quality notes:**
+- E-commerce excluded (duplicate tracking)
+- Filter `properties.value > 0` (excludes $0 trials)
+- Complex JOINs timeout - use weekly aggregations
 
 ## Brand Guide Maintenance
 
@@ -111,7 +165,7 @@ Configured in `plugin.json`:
 ## Important Context
 
 ### Superpower Value Prop Summary
-- **Pricing**: $199/year (most states), $499/year (NY & NJ)
+- **Pricing**: $199/year (most states), $499/year (NY & NJ: $400/year + $99 mandatory at-home draw fee)
 - **Mechanism**: 100+ biomarkers in 1 draw → personalized protocols → marketplace action
 - **Key Message**: "Most companies stop at testing. We go further."
 - **All-in-one platform**: Diagnostics → Protocols → Marketplace (supplements + Rx)

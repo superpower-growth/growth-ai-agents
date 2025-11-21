@@ -1,0 +1,42 @@
+{
+  "name": "superpower-growth-agents",
+  "version": "1.0.0",
+  "description": "AI agents for health-tech growth marketing",
+  "author": "Superpower DQ",
+  "license": "Apache-2.0",
+  "agents": [
+    {
+      "name": "meta-ad-copywriter",
+      "path": "agents/meta-ad-copywriter.md",
+      "description": "AI agent that writes Meta ad copy using Eugene Schwartz frameworks"
+    },
+    {
+      "name": "clinical-claims-analyst",
+      "path": "agents/clinical-claims-analyst.md",
+      "description": "AI agent that reviews health claims for regulatory compliance"
+    }
+  ],
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-notion"
+      ],
+      "env": {
+        "NOTION_API_KEY": "${NOTION_API_KEY}"
+      }
+    },
+    "posthog": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-posthog"
+      ],
+      "env": {
+        "POSTHOG_API_KEY": "${POSTHOG_API_KEY}",
+        "POSTHOG_PROJECT_ID": "${POSTHOG_PROJECT_ID}"
+      }
+    }
+  }
+}
