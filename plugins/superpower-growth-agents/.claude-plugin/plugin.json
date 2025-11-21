@@ -2,18 +2,8 @@
   "name": "superpower-growth-agents",
   "version": "1.0.0",
   "description": "AI agents for health-tech growth marketing",
-  "author": "Superpower Growth",
-  "license": "Apache-2.0",
-  "agents": [
-    {
-      "name": "meta-ad-copywriter",
-      "path": "agents/meta-ad-copywriter.md",
-      "description": "AI agent that writes Meta ad copy using Eugene Schwartz frameworks"
-    },
-    {
-      "name": "clinical-claims-analyst",
-      "path": "agents/clinical-claims-analyst.md",
-      "description": "AI agent that reviews health claims for regulatory compliance"
-    }
-  ]
+  "author": {
+    "name": "Superpower DQ"
+  },
+  "license": "Apache-2.0"
 }
