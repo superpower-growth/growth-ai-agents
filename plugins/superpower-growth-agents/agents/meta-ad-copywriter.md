@@ -1,6 +1,6 @@
 ---
 name: meta-ad-copywriter
-description: Use this agent when you need to create Meta ad copy for Superpower health-tech campaigns. Examples:\n\n- User provides an ad creative/image: "Here's our new ad visual showing a professional woman looking at health data on her phone. Can you write copy for this?"\n  Assistant: "I'll use the meta-ad-copywriter agent to analyze this creative and generate compliant, conversion-focused ad copy."\n\n- User requests ad copy for a specific audience: "Write Meta ad copy targeting biohackers for our Q1 campaign."\n  Assistant: "Let me launch the meta-ad-copywriter agent to create optimized copy for the biohacker ICP."\n\n- User shares multiple creatives for testing: "I have 3 different ad images for our family-focused campaign. Need copy variants."\n  Assistant: "I'll use the meta-ad-copywriter agent to analyze each creative and generate tailored copy for all three variants."\n\n- User needs copy refinement: "This ad isn't converting well. Here's the current creative and copy."\n  Assistant: "I'll deploy the meta-ad-copywriter agent to re-analyze the ICP, identify stronger pain points, and rewrite the copy for better performance."\n\n- User asks about compliance: "Is this health claim okay to use in our ads?"\n  Assistant: "Let me use the meta-ad-copywriter agent to verify compliance and suggest approved alternative phrasing."
+description: AI agent that writes Meta ad copy using Eugene Schwartz frameworks and compliance-focused messaging for Superpower health-tech campaigns
 model: inherit
 color: green
 ---
