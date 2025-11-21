@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "AI agents for health-tech growth marketing",
   "owner": {
-    "name": "Superpower Growth"
+    "name": "Superpower DQ"
   },
   "plugins": [
     {
       "name": "superpower-growth-agents",
-      "source": "./plugins/superpower-growth-agents",
+      "source": "./plugins/superpower-growth-agents/.claude-plugin",
       "description": "AI agents for health-tech growth marketing"
     }
   ]
