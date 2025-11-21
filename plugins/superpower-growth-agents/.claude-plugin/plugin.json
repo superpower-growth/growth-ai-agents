@@ -2,7 +2,7 @@
   "name": "superpower-growth-agents",
   "version": "1.0.0",
   "description": "AI agents for health-tech growth marketing",
-  "author": "Superpower DQ",
+  "author": "Superpower Growth",
   "license": "Apache-2.0",
   "agents": [
     {
@@ -15,28 +15,5 @@
       "path": "agents/clinical-claims-analyst.md",
       "description": "AI agent that reviews health claims for regulatory compliance"
     }
-  ],
-  "mcpServers": {
-    "notion": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-notion"
-      ],
-      "env": {
-        "NOTION_API_KEY": "${NOTION_API_KEY}"
-      }
-    },
-    "posthog": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-posthog"
-      ],
-      "env": {
-        "POSTHOG_API_KEY": "${POSTHOG_API_KEY}",
-        "POSTHOG_PROJECT_ID": "${POSTHOG_PROJECT_ID}"
-      }
-    }
-  }
+  ]
 }
