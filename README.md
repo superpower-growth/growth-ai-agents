@@ -15,46 +15,65 @@ AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agen
 
 ### Team Setup (One-Time)
 
-**3 commands. That's it.**
+**Step 1: Set Your API Keys** (before launching Claude)
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/superpowerdotcom/growth-ai-agents
-cd growth-ai-agents
+# Add to your ~/.zshrc or ~/.bashrc
+export NOTION_API_KEY="your-notion-api-key"
+export POSTHOG_API_KEY="your-posthog-api-key"
+export POSTHOG_PROJECT_ID="your-posthog-project-id"
 
-# 2. Run setup script (prompts for API keys)
-./setup.sh
-
-# 3. Install plugin in Claude Code
-/plugin install https://github.com/superpowerdotcom/growth-ai-agents
+# Reload your shell
+source ~/.zshrc
 ```
 
-**Done!** The agents are now available in Claude Code.
+**Step 2: Install the Plugin**
+
+Install from Claude's plugin marketplace or via GitHub URL.
+
+**Step 3: Use `/setup` for Help**
+
+Once installed, type `/setup` in Claude for interactive configuration help.
+
+**Done!** The agents and MCP servers are now active.
 
 ### Using the Agents
 
 **Write an ad (the fun part):**
-```bash
-# In Claude Code
-@agent-meta-ad-copywriter write copy for this [attach image]
+```
+User: Write a Meta ad for our diabetes testing campaign [attach image]
+Claude: I'll use the meta-ad-copywriter agent to create high-converting, compliant copy...
 ```
 
-**Make sure it won't get you sued (the responsible part):**
-```bash
-# In Claude Code
-@agent-clinical-claims-analyst review this copy for compliance:
-[paste your ad copy]
+**Check compliance (the responsible part):**
 ```
+User: Review this ad copy for FDA/FTC compliance: [paste copy]
+Claude: I'll use the clinical-claims-analyst to review for regulatory issues...
+```
+
+### Available Commands
+
+- `/setup` - Interactive API key configuration helper
+- `/pr` - Quick PR review and GitHub push workflow
+- `/meta-ad-copywriter` - Launch the Meta ad copywriting agent
+- `/clinical-claims-analyst` - Launch the compliance review agent
 
 ### Repository Structure
 
 ```
-.claude-plugin/               # Organization-wide shared resources
-├── brand-guide.md           # Value props, approved claims, tone of voice
-├── agents/
-│   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
-│   └── clinical-claims-analyst.md   # Compliance review agent
-└── plugin.json              # MCP server configuration
+plugins/superpower-growth-agents/
+├── .mcp.json                # MCP server configuration (Notion, PostHog)
+├── .env.example             # API key template for quick setup
+├── .claude-plugin/          # Plugin resources
+│   ├── plugin.json          # Plugin metadata
+│   ├── brand-guide.md       # Value props, approved claims, tone of voice
+│   ├── compliance-guide.md  # FDA/FTC compliance rules
+│   ├── agents/
+│   │   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
+│   │   └── clinical-claims-analyst.md   # Compliance review agent
+│   └── commands/
+│       ├── setup.md         # Interactive API key configuration
+│       └── pr.md            # GitHub PR workflow helper
 
 CLAUDE.md                    # Repository documentation for Claude Code
 ```
@@ -123,15 +142,15 @@ Lead with what they actually want:
 
 ## MCP Server Integration
 
-The setup script automatically configures these MCP servers:
-- **Notion MCP**: For accessing workspace documentation
-- **PostHog MCP**: For product analytics and insights
+The plugin includes these MCP servers for enhanced functionality:
+- **Notion MCP**: Access and manage marketing documentation, content calendars, and team resources
+- **PostHog MCP**: Track campaign performance, analyze user behavior, and measure conversion rates
 
-API keys are configured during `setup.sh` and stored in your shell config (`~/.zshrc` or `~/.bashrc`).
+**Where to get your API keys:**
+- **Notion**: https://www.notion.so/my-integrations (create an integration, copy the token)
+- **PostHog**: Your project settings page (find Project API Key and Project ID)
 
-**Where to get your keys:**
-- Notion: https://www.notion.so/my-integrations
-- PostHog: https://app.posthog.com/settings/user-api-keys
+MCP servers start automatically when you launch Claude with the proper environment variables set.
 
 ## Compliance Red Lines
 
