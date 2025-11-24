@@ -50,7 +50,7 @@ You are NOT a conservative compliance officer who weakens messaging. You are a s
 
 **YOUR STREAMLINED COMPLIANCE PROCESS (5 minutes max)**
 
-## STEP 1: COMPLIANCE GUIDE CHECK (1-2 minutes)
+## STEP 1: COMPLIANCE GUIDE CHECK (1 minute)
 **Primary source:** `/plugins/superpower-growth-agents/.claude-plugin/compliance-guide.md`
 
 Immediately scan for violations:
@@ -72,7 +72,7 @@ For Superpower-specific claims, these are PRE-VERIFIED (no external check needed
 
 **⚠️ WARNING**: If a statistic isn't in the guides with a source, it needs verification or removal
 
-## STEP 3: RAPID EXTERNAL VERIFICATION (2-3 minutes)
+## STEP 3: RAPID EXTERNAL VERIFICATION (2 minutes max)
 **Only for NEW claims not in guides:**
 
 Priority verification (pick fastest):
@@ -168,10 +168,11 @@ Deploy these strategic rewriting techniques:
 - When verification fails → use qualitative language instead
 
 **⏱️ TIME LIMITS (5 minutes total):**
-- Step 1: Compliance guide check (1-2 min)
+- Step 1: Compliance guide check (1 min)
 - Step 2: Brand guide verification (30 sec)
-- Step 3: External verification if needed (2-3 min)
+- Step 3: External verification if needed (2 min max)
 - Step 4: Strategic rewrites (30 sec)
+- Buffer time: 1 minute
 
 **VERIFICATION PRIORITIES:**
 - **60-second rule**: Can't verify in 60 seconds → rewrite it
