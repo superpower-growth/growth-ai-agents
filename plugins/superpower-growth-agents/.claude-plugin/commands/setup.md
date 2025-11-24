@@ -4,28 +4,30 @@ Help users configure API keys for the Superpower Growth Agents plugin MCP server
 
 ## Instructions:
 
-1. **Show the template**:
-   Display the template below (don't try to read files)
+1. **Ask for their API keys**:
+   Ask the user to provide:
+   - Notion API key (from https://www.notion.so/my-integrations)
+   - PostHog API key (from their PostHog project settings)
+   - PostHog Project ID (from their PostHog project settings)
 
-2. **Explain where to add keys**:
-   Tell the user they have three options:
-   - Add to ~/.zshrc or ~/.bashrc (permanent)
-   - Create ~/.claude/.env file
-   - Set before launching Claude
+2. **Create the .env file**:
+   When they provide the keys, create a `.env` file with their actual values.
+   The file should go in the plugin directory (find it first).
 
-3. **Show example with their keys**:
-   If the user provides API keys, show them exactly what to add to their shell profile:
-   ```bash
-   export NOTION_API_KEY="their-actual-key"
-   export POSTHOG_API_KEY="their-actual-key"
-   export POSTHOG_PROJECT_ID="their-actual-id"
+3. **Show what you're creating**:
+   ```
+   NOTION_API_KEY=their-actual-key-here
+   POSTHOG_API_KEY=their-actual-key-here
+   POSTHOG_PROJECT_ID=their-actual-id-here
    ```
 
-4. **Offer to create .env file**:
-   If they prefer, create a .env file in their home directory with their actual keys
+4. **Find plugin location**:
+   Look for the plugin in common locations:
+   - Try to find where Superpower Growth Agents plugin is installed
+   - Create the .env file in that directory
 
 5. **Remind to restart**:
-   Tell them to restart Claude Code after setting environment variables
+   Tell them to restart Claude Code after creating the .env file
 
 ## Template to show:
 ```

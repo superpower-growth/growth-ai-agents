@@ -13,29 +13,20 @@ AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agen
 
 ## Quick Start
 
-### Team Setup (One-Time)
+### Team Setup (One-Time, No Terminal Required!)
 
-**Step 1: Set Your API Keys** (before launching Claude)
-
-```bash
-# Add to your ~/.zshrc or ~/.bashrc
-export NOTION_API_KEY="your-notion-api-key"
-export POSTHOG_API_KEY="your-posthog-api-key"
-export POSTHOG_PROJECT_ID="your-posthog-project-id"
-
-# Reload your shell
-source ~/.zshrc
-```
-
-**Step 2: Install the Plugin**
+**Step 1: Install the Plugin**
 
 Install from Claude's plugin marketplace or via GitHub URL.
 
-**Step 3: Use `/setup` for Help**
+**Step 2: Run `/setup` Command**
 
-Once installed, type `/setup` in Claude for interactive configuration help.
+1. Type `/setup` in Claude
+2. Provide your API keys when asked
+3. Claude creates the configuration file for you
+4. Restart Claude Code
 
-**Done!** The agents and MCP servers are now active.
+**Done!** The agents and MCP servers are now active. No shell commands or terminal knowledge needed!
 
 ### Using the Agents
 

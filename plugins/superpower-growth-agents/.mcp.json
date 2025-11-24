@@ -1,19 +1,10 @@
 {
   "mcpServers": {
     "notion": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-notion"],
-      "env": {
-        "NOTION_API_KEY": "${NOTION_API_KEY}"
-      }
+      "command": "${CLAUDE_PLUGIN_ROOT}/start-notion.sh"
     },
     "posthog": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-posthog"],
-      "env": {
-        "POSTHOG_API_KEY": "${POSTHOG_API_KEY}",
-        "POSTHOG_PROJECT_ID": "${POSTHOG_PROJECT_ID}"
-      }
+      "command": "${CLAUDE_PLUGIN_ROOT}/start-posthog.sh"
     }
   }
 }

@@ -7,33 +7,26 @@ AI agents for health-tech growth marketing with Meta ad copywriting and complian
 ### 1. Install the Plugin
 Install this plugin through Claude's plugin marketplace.
 
-### 2. Configure API Keys
+### 2. Configure API Keys (Simple, No Terminal Required!)
 
-⚠️ **Important**: As a Claude Code plugin, you must set environment variables **before** launching Claude. The MCP servers won't work without these keys.
+#### 🎯 Easy Setup with `/setup` Command
+After installing the plugin:
 
-#### Quick Setup via Claude
-After installing the plugin, you can:
-- Type `/setup` for guided API key configuration
-- Ask "Show me the .env.example from Superpower plugin"
-- Ask "Create a .env file with my API keys"
+1. **Type `/setup` in Claude**
+2. **Provide your API keys when asked**:
+   - Notion API key
+   - PostHog API key
+   - PostHog Project ID
+3. **Claude creates the `.env` file for you**
+4. **Restart Claude Code**
+5. **Done!** MCP servers are now connected
 
-#### Option A: System Environment Variables (Recommended)
-Add these to your shell profile (`~/.zshrc` or `~/.bashrc`):
+No terminal, no shell commands, no technical knowledge needed! 🎉
 
-```bash
-# Add to your ~/.bashrc, ~/.zshrc, or system environment
-export NOTION_API_KEY="your-notion-api-key"
-export POSTHOG_API_KEY="your-posthog-api-key"
-export POSTHOG_PROJECT_ID="your-posthog-project-id"
+#### Manual Setup (if needed)
+Create a `.env` file in the plugin directory with:
+
 ```
-
-Then restart Claude Code for the changes to take effect.
-
-#### Option B: Local Configuration File
-Create a `.env` file in your home directory or Claude configuration directory:
-
-```bash
-# ~/.claude/.env or ~/Documents/Claude/.env
 NOTION_API_KEY=your-notion-api-key
 POSTHOG_API_KEY=your-posthog-api-key
 POSTHOG_PROJECT_ID=your-posthog-project-id
