@@ -5,7 +5,7 @@ Help users configure API keys for the Superpower Growth Agents plugin MCP server
 ## Instructions:
 
 1. **Show the template**:
-   Display the contents of `.env.example` from the plugin directory
+   Display the template below (don't try to read files)
 
 2. **Explain where to add keys**:
    Tell the user they have three options:
@@ -38,5 +38,7 @@ POSTHOG_API_KEY=your-posthog-api-key-here
 POSTHOG_PROJECT_ID=your-posthog-project-id-here
 # Get from: Your PostHog project settings
 ```
+
+**IMPORTANT**: Don't try to read .env.example or other plugin files - they're not accessible when the plugin is installed. Use the template shown above instead.
 
 Keep it simple and help them get the MCP servers running quickly!
