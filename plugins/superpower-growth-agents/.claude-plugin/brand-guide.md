@@ -4,6 +4,13 @@
 
 This document defines Superpower's official value proposition, tone of voice, and brand messaging. All agents and copywriters should reference this document as the canonical source for brand positioning.
 
+**🚨 CRITICAL: NEVER MANUFACTURE STATISTICS**
+- **NEVER make up percentages, numbers, or data points**
+- **NEVER guess or create fictional study results**
+- **All statistics in this guide must have verifiable sources**
+- If a statistic lacks a source citation, it needs verification before use
+- When in doubt, use qualitative language instead of quantitative claims
+
 ---
 
 ## Value Proposition
@@ -136,10 +143,12 @@ The website does NOT use 5-8 word maximum sentences. Actual examples:
 - 17 health scores on dashboard
 - HSA/FSA eligible
 
-**Verified Study Results (3,000+ members over 1 year):**
-- 26% of members find early risk factors for diabetes
-- 18% of members find elevated heart disease risk
-- 29% of members slow their speed of aging
+**Study Results (⚠️ SOURCE NEEDED - DO NOT USE WITHOUT VERIFICATION):**
+- 26% of members find early risk factors for diabetes [SOURCE NEEDED]
+- 18% of members find elevated heart disease risk [SOURCE NEEDED]
+- 29% of members slow their speed of aging [SOURCE NEEDED]
+
+*Note: These statistics appear on the website but lack citation. Need to verify source (internal study, published research, or marketing claim) before using in new copy.*
 
 ### ✅ APPROVED Language
 - "Detect early signs" or "Early detection of"
@@ -187,11 +196,13 @@ Format benefits with ✅ emoji when listing in ad copy:
 - **Dr. Abe Malkin** - Founder & Medical Director of Concierge MD
 - **Dr. Robert Lufkin** - UCLA Medical Professor, NYT Bestselling Author
 
-**Verified Results:**
-- Study of 3,000+ members over 1 year
-- 26% find early risk factors for diabetes
-- 18% find elevated heart disease risk
-- 29% slow their speed of aging
+**Member Results (⚠️ SOURCE VERIFICATION NEEDED):**
+- Study of 3,000+ members over 1 year [SOURCE NEEDED]
+- 26% find early risk factors for diabetes [SOURCE NEEDED]
+- 18% find elevated heart disease risk [SOURCE NEEDED]
+- 29% slow their speed of aging [SOURCE NEEDED]
+
+*Note: These statistics need source verification before use in new marketing materials*
 
 **Accessibility:**
 - 3,000+ Quest Diagnostics partner locations
