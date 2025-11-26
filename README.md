@@ -46,27 +46,34 @@ Claude: I'll use the clinical-claims-analyst to review for regulatory issues...
 
 - `/setup` - Interactive API key configuration helper
 - `/pr` - Quick PR review and GitHub push workflow
+- `/create-brief` - Create a static ad creative brief (runs Reddit research + brief writing)
 - `/meta-ad-copywriter` - Launch the Meta ad copywriting agent
 - `/clinical-claims-analyst` - Launch the compliance review agent
 
 ### Repository Structure
 
 ```
-plugins/superpower-growth-agents/
-├── .mcp.json                # MCP server configuration (Notion, PostHog)
-├── .env.example             # API key template for quick setup
-├── .claude-plugin/          # Plugin resources
-│   ├── plugin.json          # Plugin metadata
-│   ├── brand-guide.md       # Value props, approved claims, tone of voice
-│   ├── compliance-guide.md  # FDA/FTC compliance rules
-│   ├── agents/
-│   │   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
-│   │   └── clinical-claims-analyst.md   # Compliance review agent
-│   └── commands/
-│       ├── setup.md         # Interactive API key configuration
-│       └── pr.md            # GitHub PR workflow helper
-
-CLAUDE.md                    # Repository documentation for Claude Code
+growth-ai-agents/
+├── CLAUDE.md                    # Repository documentation for Claude Code
+└── plugins/
+    └── superpower-growth-agents/
+        ├── .claude-plugin/
+        │   ├── plugin.json              # Plugin metadata
+        │   └── .mcp.json                # MCP server configuration (Notion)
+        ├── brand-guide.md               # Value props, approved claims, tone of voice
+        ├── compliance-guide.md          # FDA/FTC compliance guidelines
+        ├── marketing-personas.md        # ICP definitions
+        ├── meta-ad-formats.md           # Meta ad format specifications
+        ├── steven-reiss-16-desires.md   # 16 fundamental desires framework
+        ├── agents/
+        │   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
+        │   ├── clinical-claims-analyst.md   # Compliance review agent
+        │   ├── reddit-persona-researcher.md # Reddit research agent
+        │   └── static-ad-brief-writer.md    # Creative brief generator
+        └── commands/
+            ├── create-brief.md              # Creative brief workflow
+            ├── pr.md                        # PR workflow
+            └── setup.md                     # Plugin setup helper
 ```
 
 ## Key Features
@@ -133,15 +140,30 @@ Lead with what they actually want:
 
 ## MCP Server Integration
 
-The plugin includes these MCP servers for enhanced functionality:
-- **Notion MCP**: Access and manage marketing documentation, content calendars, and team resources
+The plugin includes hosted MCP servers with browser-based OAuth authentication:
+- **Notion MCP** (official): Access and manage marketing documentation, content calendars, and team resources
 - **PostHog MCP**: Track campaign performance, analyze user behavior, and measure conversion rates
 
-**Where to get your API keys:**
-- **Notion**: https://www.notion.so/my-integrations (create an integration, copy the token)
-- **PostHog**: Your project settings page (find Project API Key and Project ID)
+### How It Works
 
-MCP servers start automatically when you launch Claude with the proper environment variables set.
+MCP servers are configured in `plugin.json` and automatically available when the plugin is installed:
+
+```json
+{
+  "mcpServers": {
+    "notion": {
+      "type": "sse",
+      "url": "https://mcp.notion.com/sse"
+    },
+    "posthog": {
+      "type": "sse",
+      "url": "https://mcp.posthog.com/sse"
+    }
+  }
+}
+```
+
+**No API keys needed!** When you first use an MCP tool, your browser opens for OAuth authentication. Just sign in and authorize access.
 
 ## Compliance Red Lines
 
