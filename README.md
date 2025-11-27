@@ -13,50 +13,67 @@ AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agen
 
 ## Quick Start
 
-### Team Setup (One-Time)
+### Team Setup (One-Time, No Terminal Required!)
 
-**3 commands. That's it.**
+**Step 1: Install the Plugin**
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/superpowerdotcom/growth-ai-agents
-cd growth-ai-agents
+Install from Claude's plugin marketplace or via GitHub URL.
 
-# 2. Run setup script (prompts for API keys)
-./setup.sh
+**Step 2: Run `/setup` Command**
 
-# 3. Install plugin in Claude Code
-/plugin install https://github.com/superpowerdotcom/growth-ai-agents
-```
+1. Type `/setup` in Claude
+2. Provide your API keys when asked
+3. Claude creates the configuration file for you
+4. Restart Claude Code
 
-**Done!** The agents are now available in Claude Code.
+**Done!** The agents and MCP servers are now active. No shell commands or terminal knowledge needed!
 
 ### Using the Agents
 
 **Write an ad (the fun part):**
-```bash
-# In Claude Code
-@agent-meta-ad-copywriter write copy for this [attach image]
+```
+User: Write a Meta ad for our diabetes testing campaign [attach image]
+Claude: I'll use the meta-ad-copywriter agent to create high-converting, compliant copy...
 ```
 
-**Make sure it won't get you sued (the responsible part):**
-```bash
-# In Claude Code
-@agent-clinical-claims-analyst review this copy for compliance:
-[paste your ad copy]
+**Check compliance (the responsible part):**
 ```
+User: Review this ad copy for FDA/FTC compliance: [paste copy]
+Claude: I'll use the clinical-claims-analyst to review for regulatory issues...
+```
+
+### Available Commands
+
+- `/setup` - Interactive API key configuration helper
+- `/pr` - Quick PR review and GitHub push workflow
+- `/create-brief` - Create a static ad creative brief (runs Reddit research + brief writing)
+- `/meta-ad-copywriter` - Launch the Meta ad copywriting agent
+- `/clinical-claims-analyst` - Launch the compliance review agent
 
 ### Repository Structure
 
 ```
-.claude-plugin/               # Organization-wide shared resources
-├── brand-guide.md           # Value props, approved claims, tone of voice
-├── agents/
-│   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
-│   └── clinical-claims-analyst.md   # Compliance review agent
-└── plugin.json              # MCP server configuration
-
-CLAUDE.md                    # Repository documentation for Claude Code
+growth-ai-agents/
+├── CLAUDE.md                    # Repository documentation for Claude Code
+└── plugins/
+    └── superpower-growth-agents/
+        ├── .claude-plugin/
+        │   ├── plugin.json              # Plugin metadata
+        │   └── .mcp.json                # MCP server configuration (Notion)
+        ├── brand-guide.md               # Value props, approved claims, tone of voice
+        ├── compliance-guide.md          # FDA/FTC compliance guidelines
+        ├── marketing-personas.md        # ICP definitions
+        ├── meta-ad-formats.md           # Meta ad format specifications
+        ├── steven-reiss-16-desires.md   # 16 fundamental desires framework
+        ├── agents/
+        │   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
+        │   ├── clinical-claims-analyst.md   # Compliance review agent
+        │   ├── reddit-persona-researcher.md # Reddit research agent
+        │   └── static-ad-brief-writer.md    # Creative brief generator
+        └── commands/
+            ├── create-brief.md              # Creative brief workflow
+            ├── pr.md                        # PR workflow
+            └── setup.md                     # Plugin setup helper
 ```
 
 ## Key Features
@@ -123,15 +140,30 @@ Lead with what they actually want:
 
 ## MCP Server Integration
 
-The setup script automatically configures these MCP servers:
-- **Notion MCP**: For accessing workspace documentation
-- **PostHog MCP**: For product analytics and insights
+The plugin includes hosted MCP servers with browser-based OAuth authentication:
+- **Notion MCP** (official): Access and manage marketing documentation, content calendars, and team resources
+- **PostHog MCP**: Track campaign performance, analyze user behavior, and measure conversion rates
 
-API keys are configured during `setup.sh` and stored in your shell config (`~/.zshrc` or `~/.bashrc`).
+### How It Works
 
-**Where to get your keys:**
-- Notion: https://www.notion.so/my-integrations
-- PostHog: https://app.posthog.com/settings/user-api-keys
+MCP servers are configured in `plugin.json` and automatically available when the plugin is installed:
+
+```json
+{
+  "mcpServers": {
+    "notion": {
+      "type": "sse",
+      "url": "https://mcp.notion.com/sse"
+    },
+    "posthog": {
+      "type": "sse",
+      "url": "https://mcp.posthog.com/sse"
+    }
+  }
+}
+```
+
+**No API keys needed!** When you first use an MCP tool, your browser opens for OAuth authentication. Just sign in and authorize access.
 
 ## Compliance Red Lines
 
