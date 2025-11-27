@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "superpower-growth-agents",
-      "source": "./plugins/superpower-growth-agents/.claude-plugin",
+      "source": "./plugins/superpower-growth-agents",
       "description": "AI agents for health-tech growth marketing"
     }
   ]
