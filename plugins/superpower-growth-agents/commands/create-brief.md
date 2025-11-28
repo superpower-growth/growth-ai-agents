@@ -1,113 +1,123 @@
 ---
 name: create-brief
-description: Creates a static ad creative brief by researching Reddit for persona insights, then generating 3-5 ad concepts
+description: Creates a static ad creative brief by researching Reddit for persona insights, then generating 20-50 ad concepts optimized for Meta Andromeda
 ---
 
 # Creative Brief Workflow
 
-This command runs a two-agent workflow to create a performance creative brief for static ads.
+This command uses the **meta-creative-strategist** agent to create high-volume, Andromeda-optimized creative briefs.
 
 ## Step 1: Gather Brief Requirements
 
 Ask the user for:
 
-1. **Target Persona**: Who are we creating ads for?
-   - Example: "Busy moms 35-45 worried about energy levels"
-   - Example: "Biohackers who want comprehensive blood work"
-   - Example: "Health-anxious men 40+ concerned about preventive care"
+1. **Target Segment**: Which 30+ women segment?
+   - 30-35: Early signal women (unexplained fatigue, early hormonal shifts)
+   - 35-42: Transition warriors (active perimenopause, juggling life)
+   - 42-50: Optimization generation (deep in transition, cracking the code)
+   - Or: All segments with different approaches
 
-2. **Core Problem/Pain Point**: What specific problem are they trying to solve?
-   - Example: "Constant fatigue despite eating healthy"
-   - Example: "Not getting enough data from annual checkups"
-   - Example: "Worried something's wrong but doctors say they're fine"
+2. **Core Pain Point**: What specific problem?
+   - Example: "Exhausted but doctors say labs are normal"
+   - Example: "Brain fog and mood swings starting in early 30s"
+   - Example: "Dismissed by healthcare system"
 
-3. **Campaign Focus (optional)**: Any specific product focus or angle?
-   - Example: "Emphasize comprehensive testing vs. standard panels"
-   - Example: "Focus on convenience and at-home options"
+3. **Campaign Volume**: How many concepts needed?
+   - Standard: 20-30 concepts
+   - Full Andromeda: 40-50 concepts
 
-## Step 2: Run Reddit Research
+## Step 2: Research & Insights
 
-Once you have the persona and problem, use the **reddit-persona-researcher** agent:
+Use the **meta-creative-strategist** agent with the **insight-generation** skill:
 
 ```
 Research this persona on Reddit:
-- Persona: [user's description]
-- Core Problem: [user's description]
-- Focus: [any specific angle]
+- Segment: [user's segment choice]
+- Core Pain Point: [user's description]
 
-Find authentic language, pain points, and quotes we can use for ad copy.
+Generate 5 actionable insights mapped to Steven Reiss desires.
 ```
 
-Wait for the research results.
+Present insights to user for approval before proceeding.
 
-## Step 3: Review Research with User
+## Step 3: Concept Matrix
 
-Present the research findings to the user:
-
-1. Show the **key pain points discovered**
-2. Show the **golden quotes** that could inspire copy
-3. Show the **desire mapping** (which Steven Reiss desires are strongest)
-
-Ask: "Does this research capture the right pain points? Any angles you want me to emphasize or avoid in the brief?"
-
-## Step 4: Generate Creative Brief
-
-Once the user approves the research direction, use the **static-ad-brief-writer** agent:
+Once insights are approved, use the **concept-matrix** skill:
 
 ```
-Create a static ad brief based on this Reddit research:
+Build a concept matrix from these insights:
+[Paste approved insights]
 
-[Paste the research output]
-
-Requirements:
-- 3-5 distinct ad concepts
-- Map each to Steven Reiss desires
-- Include headline variations (H1.0, H1.1, H1.2)
-- Provide visual direction
-- Recommend Meta ad formats
+Generate [20-50] concepts across:
+- Multiple desires (Power, Independence, Curiosity, Acceptance, Tranquility)
+- Multiple awareness stages (Problem Aware, Solution Aware, Product Aware)
+- Multiple formats (Single image, Carousel, UGC-style)
 ```
 
-## Step 5: Present Brief for Approval
+## Step 4: Brief Top Concepts
 
-Show the complete brief to the user with:
+Use the **brief-writing** skill for the top 10 priority concepts:
 
-1. **Summary of concepts** - Quick overview of all 3-5 concepts
-2. **Testing matrix** - Priority order for testing
-3. **Next steps** - What designer needs to execute
+```
+Create complete briefs for these top 10 concepts:
+[Paste priority concepts]
 
-Ask: "Ready to save this brief? I can save it to markdown or help you put it in Notion."
+Include:
+- 3 headline variations (H1.0, H1.1, H1.2)
+- Hook and body copy
+- Visual direction
+- Format specs
+- Compliance notes
+```
 
-## Step 6: Save Output
+## Step 5: Compliance Check
 
-Based on user preference:
+Use the **compliance-check** skill on all copy:
 
-**Option A: Save to Markdown**
-Save the brief to `briefs/[date]-[persona-name].md`
+```
+Review all briefs for FDA/FTC compliance.
+Flag RED/YELLOW issues and provide aggressive-but-defensible rewrites.
+```
 
-**Option B: Save to Notion** (if Notion MCP is connected)
-Create a new page in the designated Briefs database
+## Step 6: Deliver Final Package
+
+Present to user:
+
+1. **Insight Report** - 5 core insights with evidence
+2. **Concept Matrix** - Full 20-50 concept grid
+3. **Top 10 Briefs** - Complete creative briefs
+4. **Testing Roadmap** - Priority order and success metrics
+5. **Compliance Summary** - All flags resolved
+
+Save options:
+- Markdown: `briefs/[date]-[segment].md`
+- Notion: If MCP connected, create in Briefs database
 
 ---
 
 ## Quick Reference
 
-**Agents Used:**
-- `reddit-persona-researcher` - Finds authentic persona language on Reddit
-- `static-ad-brief-writer` - Transforms research into ad concepts
+**Agent Used:**
+- `meta-creative-strategist` - Maya, the 30+ women creative strategist
 
-**Reference Files:**
-- `steven-reiss-16-desires.md` - Desire framework
+**Skills Invoked:**
+- `insight-generation` - Reddit research → actionable insights
+- `concept-matrix` - Systematic 20-50+ concept generation
+- `brief-writing` - Designer-ready briefs
+- `compliance-check` - FDA/FTC review with rewrites
+
+**Reference Files (at `${CLAUDE_PLUGIN_ROOT}/`):**
 - `brand-guide.md` - Approved claims and value props
+- `steven-reiss-16-desires.md` - Desire framework
 - `meta-ad-formats.md` - Format specifications
 - `compliance-guide.md` - Regulatory guardrails
+- `marketing-personas.md` - ICP definitions
 
 **Expected Output:**
-- 3-5 ad concepts with:
-  - 3 headline variations each
-  - Complete body copy
-  - Visual direction
-  - Format recommendations
+- 5 insights with desire mapping
+- 20-50 concept matrix
+- 10 complete briefs with 3 headline variations each
 - Testing priority matrix
-- Compliance notes
+- Compliance-cleared copy
 
-**Typical Duration:** 10-15 minutes for full workflow
+**Typical Duration:** 15-20 minutes for full workflow
