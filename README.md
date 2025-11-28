@@ -4,88 +4,94 @@ Your AI-powered growth team in a repo. Because writing compliant health-tech cop
 
 ## What's This?
 
-AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agents are like having Eugene Schwartz and an FDA compliance lawyer on speed dial.
+AI agents for Superpower's Growth org. Built as a Claude Code plugin, these agents are like having Eugene Schwartz, a Reddit anthropologist, and an FDA compliance lawyer on speed dial.
 
 **What's Inside:**
 - **Meta Ad Copywriter** 📝 - Writes ads that convert using frameworks from the 1960s that still work better than "growth hacks"
 - **Clinical Claims Analyst** ⚖️ - Makes sure your "prevents death" claim becomes "may support longevity" without killing conversion
+- **Reddit Persona Researcher** 🔍 - Finds real pain points from r/Biohackers and health subreddits so you stop guessing what people want
+- **Static Ad Brief Writer** 📋 - Creates designer-ready creative briefs with Reddit-sourced insights mapped to human desires
 - **Brand Guide** 📖 - The one doc that stops arguments about whether it's $199 or $200
 
 ## Quick Start
 
-### Team Setup (One-Time, No Terminal Required!)
+### Installation
 
-**Step 1: Install the Plugin**
+**Option 1: Claude Code Plugin Marketplace**
+Install directly from Claude Code's plugin marketplace (search "superpower-growth-agents").
 
-Install from Claude's plugin marketplace or via GitHub URL.
+**Option 2: Manual Install**
+Clone this repo and add the plugin path to your Claude Code settings.
 
-**Step 2: Run `/setup` Command**
-
-1. Type `/setup` in Claude
-2. Provide your API keys when asked
-3. Claude creates the configuration file for you
-4. Restart Claude Code
-
-**Done!** The agents and MCP servers are now active. No shell commands or terminal knowledge needed!
+**That's it!** The agents auto-discover and MCP servers use browser OAuth - no API keys to configure.
 
 ### Using the Agents
 
-**Write an ad (the fun part):**
+Claude auto-invokes the right agent based on your request:
+
+**Write an ad:**
 ```
 User: Write a Meta ad for our diabetes testing campaign [attach image]
-Claude: I'll use the meta-ad-copywriter agent to create high-converting, compliant copy...
+→ meta-ad-copywriter agent creates high-converting, compliant copy
 ```
 
-**Check compliance (the responsible part):**
+**Check compliance:**
 ```
 User: Review this ad copy for FDA/FTC compliance: [paste copy]
-Claude: I'll use the clinical-claims-analyst to review for regulatory issues...
+→ clinical-claims-analyst reviews for regulatory issues
+```
+
+**Research your audience:**
+```
+User: Research what biohackers on Reddit are saying about blood testing
+→ reddit-persona-researcher finds real pain points and language patterns
+```
+
+**Create a creative brief:**
+```
+User: /create-brief for a campaign targeting burned-out executives
+→ Runs Reddit research + maps to desires + outputs designer-ready brief
 ```
 
 ### Available Commands
 
-- `/setup` - Interactive API key configuration helper
-- `/pr` - Quick PR review and GitHub push workflow
-- `/create-brief` - Create a static ad creative brief (runs Reddit research + brief writing)
-- `/meta-ad-copywriter` - Launch the Meta ad copywriting agent
-- `/clinical-claims-analyst` - Launch the compliance review agent
+- `/create-brief` - End-to-end creative brief workflow (Reddit research → desire mapping → formatted brief)
 
 ### Repository Structure
 
 ```
 growth-ai-agents/
-├── CLAUDE.md                    # Repository documentation for Claude Code
+├── CLAUDE.md                    # Instructions for Claude Code
+├── README.md
 └── plugins/
     └── superpower-growth-agents/
         ├── .claude-plugin/
-        │   ├── plugin.json              # Plugin metadata
-        │   └── .mcp.json                # MCP server configuration (Notion)
+        │   └── plugin.json              # Plugin metadata
+        ├── .mcp.json                    # MCP server configuration (Notion)
         ├── brand-guide.md               # Value props, approved claims, tone of voice
         ├── compliance-guide.md          # FDA/FTC compliance guidelines
-        ├── marketing-personas.md        # ICP definitions
+        ├── marketing-personas.md        # ICP definitions & targeting guides
         ├── meta-ad-formats.md           # Meta ad format specifications
         ├── steven-reiss-16-desires.md   # 16 fundamental desires framework
         ├── agents/
-        │   ├── meta-ad-copywriter.md        # Meta ad copywriting agent
-        │   ├── clinical-claims-analyst.md   # Compliance review agent
-        │   ├── reddit-persona-researcher.md # Reddit research agent
-        │   └── static-ad-brief-writer.md    # Creative brief generator
+        │   ├── meta-ad-copywriter.md        # Meta ad copywriting (Eugene Schwartz frameworks)
+        │   ├── clinical-claims-analyst.md   # FDA/FTC compliance review
+        │   ├── reddit-persona-researcher.md # Reddit pain point research
+        │   └── static-ad-brief-writer.md    # Designer-ready creative briefs
         └── commands/
-            ├── create-brief.md              # Creative brief workflow
-            ├── pr.md                        # PR workflow
-            └── setup.md                     # Plugin setup helper
+            └── create-brief.md              # End-to-end brief workflow
 ```
 
 ## Key Features
 
 ### Meta Ad Copywriter 📝
-Think of this as your copywriter who's read every marketing book from the 1960s and somehow still sounds modern:
+Your copywriter who's read every marketing book from the 1960s and somehow still sounds modern:
 
-- **Eugene Schwartz Frameworks** - 5 Stages of Awareness + Market Sophistication (turns out people in the 60s understood psychology better than most "growth hackers")
-- **17 Fundamental Human Desires** - Because people don't buy "100+ biomarkers," they buy "knowing why they're tired"
-- **Staccato Rhythm** - Short sentences. Like this. Because nobody reads long paragraphs on Meta.
-- **Outcome-Focused** - Verified from brands that actually convert (Hims, Bryan Johnson), not made-up BS
-- **Compliance Built-In** - Uses only approved claims so you don't accidentally practice medicine without a license
+- **Eugene Schwartz Frameworks** - 5 Stages of Awareness + Market Sophistication
+- **17 Fundamental Human Desires** - People don't buy "100+ biomarkers," they buy "knowing why they're tired"
+- **Outcome-Focused** - Verified from brands that actually convert (Hims, Bryan Johnson)
+- **Compliance Built-In** - Uses only approved claims from the brand guide
+- **Image Analysis** - Attach a creative and get copy matched to the visual
 
 ### Clinical Claims Analyst ⚖️
 Your FDA compliance friend who says "yes, and..." instead of just "no":
@@ -93,8 +99,23 @@ Your FDA compliance friend who says "yes, and..." instead of just "no":
 - **RED/YELLOW/GREEN Flags** - Traffic light system for your claims (spoiler: most are fixable)
 - **Aggressive-But-Defensible Rewrites** - We don't kill your message, we make it legally bulletproof
 - **4-Minute Analysis** - Faster than your legal team's calendar invite response
-- **Grey Area Toolkit** - 10 ways to say powerful things without crossing the line
 - **No Claim Left Behind** - We rewrite, not delete (your conversion rate will thank us)
+
+### Reddit Persona Researcher 🔍
+Your anthropologist who lurks r/Biohackers so you don't have to:
+
+- **Real Pain Points** - Direct quotes from actual humans, not marketing personas invented in a conference room
+- **Language Patterns** - How your audience actually talks about their problems
+- **Subreddit Intelligence** - r/Biohackers, r/longevity, r/30PlusSkinCare, and health-adjacent communities
+- **Quote Extraction** - Copy-paste ready snippets for ad copy inspiration
+
+### Static Ad Brief Writer 📋
+Designer-ready creative briefs that actually get used:
+
+- **Reddit-Sourced Insights** - Calls the persona researcher, so briefs are grounded in real pain points
+- **Steven Reiss 16 Desires** - Maps messaging to fundamental human motivations (not just "features")
+- **Format Recommendations** - Carousel vs. single image vs. video based on message complexity
+- **Structured Output** - Headline, hook, body, CTA, visual direction, compliance notes
 
 ### Brand Guide 📖
 The single source of truth so you stop debating facts:
@@ -109,7 +130,7 @@ The single source of truth so you stop debating facts:
 
 ### 1. Brand Guide as Single Source of Truth
 
-All agents reference `.claude-plugin/brand-guide.md` because:
+All agents reference `brand-guide.md` because:
 - Pricing shouldn't be a choose-your-own-adventure
 - "Did we say 24/7 or year-round support?" shouldn't be a Slack thread
 - When value props change, update one file, not hunt through 15 agents
@@ -140,30 +161,27 @@ Lead with what they actually want:
 
 ## MCP Server Integration
 
-The plugin includes hosted MCP servers with browser-based OAuth authentication:
-- **Notion MCP** (official): Access and manage marketing documentation, content calendars, and team resources
-- **PostHog MCP**: Track campaign performance, analyze user behavior, and measure conversion rates
+The plugin includes MCP servers with browser-based OAuth authentication:
+- **Notion MCP** (official): Access marketing docs, content calendars, and team resources
 
 ### How It Works
 
-MCP servers are configured in `plugin.json` and automatically available when the plugin is installed:
+MCP servers are configured in `.mcp.json` and automatically available when the plugin is installed:
 
 ```json
 {
   "mcpServers": {
     "notion": {
-      "type": "sse",
-      "url": "https://mcp.notion.com/sse"
-    },
-    "posthog": {
-      "type": "sse",
-      "url": "https://mcp.posthog.com/sse"
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
 ```
 
-**No API keys needed!** When you first use an MCP tool, your browser opens for OAuth authentication. Just sign in and authorize access.
+**No API keys needed!** When you first use a Notion tool, your browser opens for OAuth. Sign in and authorize access.
+
+**Adding PostHog:** If you want analytics integration, add PostHog to your personal Claude Code MCP settings or request it be added to this plugin.
 
 ## Compliance Red Lines
 
