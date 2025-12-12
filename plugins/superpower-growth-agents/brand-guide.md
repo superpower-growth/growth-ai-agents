@@ -39,7 +39,7 @@ Superpower is a connected ecosystem that goes beyond testing:
 
 **2. Unbeatable Pricing**
 - **$199/year** = $17/month (most states)
-- vs **$400-$499/year** at Function Health
+- vs **$365/year** at Function Health
 - vs **$10,000-$100,000/year** at concierge medicine practices
 - HSA/FSA eligible
 
@@ -233,6 +233,59 @@ Format benefits with ✅ emoji when listing in ad copy:
 
 ---
 
+## 🚨 LEGAL COMPLIANCE: Competitive Marketing Restrictions
+
+**CRITICAL: See `compliance-guide.md` for full legal guardrails.**
+
+### ❌ NEVER Mention Competitor Names in Ads
+
+**Trademark law prohibits naming competitors in paid advertising.**
+
+**PROHIBITED examples:**
+- ❌ "Function charges $498 when we charge $199"
+- ❌ "Unlike Quest Diagnostics, we..."
+- ❌ "Better than Function Health"
+- ❌ "The biohackers found us" (if implying Function's audience)
+
+**APPROVED alternatives:**
+- ✅ "What could cost you $498 elsewhere is $199 here"
+- ✅ "Most testing companies charge 2-3x more"
+- ✅ "Other providers require 2 blood draws. We do 100+ biomarkers in 1."
+
+**Why:** Avoids trademark infringement lawsuits, ad account suspension, and legal claims.
+
+**Enforcement:** Search all copy for "Function", "Quest", "Everlywell", "InsideTracker" before publishing. If found → rewrite with generic language.
+
+### ❌ NEVER Edit Third-Party Content
+
+**FTC prohibits misrepresenting Reddit posts, reviews, or testimonials.**
+
+**PROHIBITED:**
+- ❌ Screenshot Reddit post but remove sentences
+- ❌ Crop reviews to change meaning
+- ❌ Edit quotes without clear [...] brackets
+
+**APPROVED:**
+- ✅ Quote verbatim with attribution
+- ✅ Paraphrase (but don't use screenshots if paraphrasing)
+- ✅ Use anonymous aggregated insights
+
+**Why:** Deceptive marketing violations, loss of credibility, defamation risk.
+
+### ❌ NEVER Use Customer Names Without Consent
+
+**Privacy violations can trigger HIPAA and right of publicity claims.**
+
+**PROHIBITED:**
+- ❌ "Sarah from NYC saved $300"
+- ❌ Real customer names in marketing
+
+**APPROVED:**
+- ✅ Anonymous personas ("A 34-year-old woman in Boston...")
+- ✅ Aggregated data ("26% of members find...")
+
+---
+
 ## Important Clarifications
 
 ### Clinical Team Access
@@ -272,6 +325,11 @@ Format benefits with ✅ emoji when listing in ad copy:
 
 ## Version History
 
+- **2025-01-20**: Added Legal Compliance section for competitive marketing restrictions
+  - Prohibits competitor name mentions in ads (Function, Quest, etc.)
+  - Prohibits third-party content manipulation (Reddit screenshot editing)
+  - Prohibits customer names without consent
+  - References compliance-guide.md for full legal guardrails
 - **2025-01-19**: Initial brand guide created with verified facts from superpower.com
   - Researched and confirmed all pricing, claims, and value propositions
   - Updated clinical support language from "year-round" to "24/7"

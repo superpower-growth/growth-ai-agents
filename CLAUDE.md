@@ -92,26 +92,88 @@ Configured in `plugin.json`:
 
 **Key Events:**
 - `USER_CREATED` - New user signup (use for user counts, ARPU denominators)
-- `subscription_created` - New subscription (value in cents: 19900=$199, 39900=$399)
-- `order_upgraded` - Subscription upgrades (18900-19900 cents)
-- `order_created` - Lab tests (21000-188600 cents)
 - `$pageview` - Page views (use `$initial_current_url` for landing page attribution)
-- `checkout_completed` - E-commerce (EXCLUDED due to duplicate tracking issues)
+
+**Revenue Events (all values in cents):**
+- `CHECKOUT_PROCESSED` - **Primary revenue event** (replacing deprecated `subscription_created`)
+- `SUBSCRIPTION_CREATED` - New subscriptions (value in cents: 19900=$199, 39900=$399)
+- `ORDER_CREATED` - Lab test orders during onboarding or services page
+- `ORDER_UPGRADED` - Lab test upgrades during onboarding or services page
+- `ORDERED_PRODUCT` - Marketplace e-commerce sales (supplements + Rx) - **No COGS property available**
+- ⚠️ **DEPRECATED:** `subscription_created` (lowercase) - being replaced by CHECKOUT_PROCESSED
 
 **State attribution:** `coalesce(person.properties.state, person.properties.$geoip_subdivision_1_code)` (98%+ coverage)
 
-**Revenue formula:**
+**Revenue formula (all revenue events combined):**
 ```sql
 sum(if(properties.value > 0, properties.value / 100, 0)) as revenue
-FROM events WHERE event = 'subscription_created'
+FROM events
+WHERE event IN (
+  'CHECKOUT_PROCESSED',
+  'SUBSCRIPTION_CREATED',
+  'ORDER_CREATED',
+  'ORDER_UPGRADED',
+  'ORDERED_PRODUCT'
+)
+AND properties.value > 0
 ```
 
-**ARPU:** subscription_created revenue / USER_CREATED count (by week + state)
+**Customer Acquisition Events:**
+- `CHECKOUT_PROCESSED` + `SUBSCRIPTION_CREATED` (for new customer counts)
+- **NOT** `subscription_created` (deprecated lowercase variant)
+
+**ARPU:** Total revenue / USER_CREATED count (by week + state)
 
 **Data quality notes:**
-- E-commerce excluded (duplicate tracking)
-- Filter `properties.value > 0` (excludes $0 trials)
+- Always filter `properties.value > 0` (excludes $0 trials)
+- `subscription_created` (lowercase) is deprecated - use CHECKOUT_PROCESSED or SUBSCRIPTION_CREATED
 - Complex JOINs timeout - use weekly aggregations
+
+### Attribution & Revenue Definitions (Source of Truth)
+
+**Last Updated:** December 2, 2025
+**Reference Dashboard:** [Growth Source of Truth](https://us.posthog.com/project/195693/dashboard/806720)
+
+**Attribution Model:**
+- **Default: First-Touch Attribution** - Use for strategic reporting and channel performance
+- **Event-Level Attribution** - Only use when optimizing specific campaigns
+
+**Total Revenue Calculation:**
+Sum of 4 revenue events (all values in cents):
+1. `CHECKOUT_PROCESSED` - Primary event for new subscriptions ($199, $399)
+2. `order_created` - Lab test orders during onboarding/services (⚠️ only ~39% have revenue values)
+3. `order_upgraded` - Lab test upgrades (100% have revenue values)
+4. `ORDERED_PRODUCT` - Marketplace e-commerce (supplements + Rx, server-side event)
+
+**Core Metrics Definitions:**
+- **Sessions:** Unique session count (traffic volume)
+- **Registrations (`registration_created`):** New user signups - always cohorted by signup week
+- **Checkouts:** `CHECKOUT_PROCESSED` event count
+- **Revenue:** Sum of 4 revenue events in dollars (filter out $0 values)
+- **First Week ARPU:** Revenue per paying member in first 7 days (excludes $0 trials) ÷ Paying `registration_created` (users with $0+ revenue in first week, grouped by cohort week + state)
+- **Member Acquisition (First Week - Cohorted):** Unique paying members who made their first purchase within 7 days of signup, grouped by signup week (use for first-week conversion rates)
+- **Marketplace Revenue Margin:** All `ORDERED_PRODUCT` transactions calculated at 20% margin in ARPU metrics (estimated profit contribution)
+
+**Cohorted vs Non-Cohorted Analysis:**
+- **Cohorted (First Week):** Groups by signup week, counts conversions within 7 days → Use for conversion rate analysis
+- **Non-Cohorted:** Groups by purchase week, counts all conversions → Use for weekly revenue tracking
+
+**Cohorted Conversion Funnel Logic:**
+- **Cohort Week:** Users grouped by first session week (`toStartOfWeek(min(timestamp))` for `$pageview` events)
+- **Conversion Window:** 7 days from first session (not from signup)
+- **Lead Event:** `registration_started` (not USER_CREATED - avoids post-payment timing issues)
+- **Session → Lead:** Users who fired `registration_started` within 7 days / total sessions
+- **Lead → Subscription:** Leads who converted within 7 days / total leads
+- **Session → Subscription:** Leads who converted within 7 days / total sessions
+- **Alignment Rule:** All 3 charts use same cohort definition (first session week) and same 7-day window
+
+**Channel Classification (6 Primary Channels):**
+1. **Growth Marketing:** Paid Search, Paid Social, and Podcast advertising
+2. **Direct/None + Organic Home Page:** Direct traffic (bookmarks, typed URLs, unknown sources) AND organic search landing on home page (`person.properties.$virt_initial_channel_type IN ('Direct', 'None')` OR `person.properties.$virt_initial_channel_type = 'SEO'` with home page landing)
+3. **SEO:** Organic Search from search engines (Google, Bing) and LLM tools (ChatGPT, Perplexity, Claude, Gemini, Copilot, Bard, You.com, Phind). **Excludes home page traffic** and `/welcome` page to prevent double-counting
+4. **Email:** Email marketing campaigns and newsletters
+5. **Organic Social:** Unpaid social media (Instagram, LinkedIn, Twitter, Facebook, TikTok, YouTube)
+6. **Referral/Affiliate:** Referral programs and affiliate partnerships (**excludes LLM traffic** - counted in SEO to prevent double-counting)
 
 ## Brand Guide Maintenance
 
