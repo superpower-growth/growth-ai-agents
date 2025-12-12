@@ -186,6 +186,96 @@ Always consult before creating:
 
 ---
 
+# 🚨 CRITICAL: LEGAL COMPLIANCE - NON-NEGOTIABLE
+
+**These rules prevent trademark violations, FTC complaints, and legal action. Violations can result in lawsuits, ad account suspension, and severe brand damage.**
+
+**Read `${CLAUDE_PLUGIN_ROOT}/compliance-guide.md` for full details.**
+
+## ❌ ABSOLUTE PROHIBITIONS
+
+### 1. NEVER Mention Competitor Brand Names
+
+**ZERO TOLERANCE. No exceptions.**
+
+❌ PROHIBITED:
+- "Function charges $498"
+- "Unlike Function Health..."
+- "Better than Quest Diagnostics"
+- "What Function can't give you..."
+- Any variation mentioning: Function, Function Health, Quest, Quest Diagnostics, LabCorp, Everlywell, InsideTracker, etc.
+
+✅ APPROVED:
+- "What could cost you $498 elsewhere is $199 here"
+- "Most testing companies charge 2-3x more"
+- "Other providers require 2 blood draws"
+- "Concierge medicine can cost $10k-$100k/year"
+
+**Formula:** Generic category + price point = OK | Competitor name + anything = NOT OK
+
+**Enforcement:**
+- Before finalizing ANY copy, search for: "Function", "Quest", "Everlywell", "InsideTracker", "LabCorp"
+- If found → REWRITE with generic language
+- If unsure whether a name is a competitor → ask user or remove it
+
+### 2. NEVER Edit Third-Party Content (Reddit, Reviews)
+
+**Misrepresenting content is FTC violation and destroys credibility.**
+
+❌ PROHIBITED:
+- Screenshot Reddit post but remove/edit sentences
+- Crop reviews to change meaning
+- Modify quotes without clear [editing] brackets
+- Take words out of context
+
+✅ APPROVED:
+- Quote verbatim with attribution
+- Paraphrase clearly (DON'T use screenshots if paraphrasing)
+- Use [...] or [edited for clarity] if editing
+- Link to original source
+
+**Formula:** Verbatim quote + attribution = OK | Screenshot + editing = NOT OK
+
+**Enforcement:**
+- If brief includes Reddit research → ONLY use paraphrased insights or verbatim quotes
+- NEVER recommend "screenshot this Reddit post" as visual direction
+- If user provides edited screenshot → flag it and recommend verbatim quote instead
+
+### 3. NEVER Use Customer Names Without Consent
+
+**Privacy violations can trigger HIPAA complaints and lawsuits.**
+
+❌ PROHIBITED:
+- "Sarah from NYC saved $300"
+- "@username found us through..."
+- Real customer names in any marketing copy
+
+✅ APPROVED:
+- "A 34-year-old woman in Boston..." (anonymous)
+- "26% of members find early risk factors..." (aggregated)
+- Signed testimonial releases ONLY
+
+**Formula:** Named person + consent = OK | Named person + no consent = NOT OK
+
+**Enforcement:**
+- ALL testimonials must be anonymous or have written consent
+- Default to anonymous personas unless user provides signed release
+- Use aggregated data from brand guide instead of individual stories
+
+## Pre-Publication Compliance Checklist
+
+**MANDATORY before finalizing ANY brief or ad copy:**
+
+- [ ] Search output for competitor names (Function, Quest, etc.) → Remove/rewrite
+- [ ] Check all Reddit references → Paraphrased or verbatim only (no screenshot edits)
+- [ ] Verify NO customer names used → Anonymous or aggregated only
+- [ ] Price comparisons use generic terms ("elsewhere", "other providers")
+- [ ] Visual direction doesn't recommend edited screenshots
+
+**If ANY checkbox fails → DO NOT publish. Fix violations first.**
+
+---
+
 # 🚨 CRITICAL: Brand Guide Compliance
 
 **ALWAYS read `${CLAUDE_PLUGIN_ROOT}/brand-guide.md` BEFORE writing any copy.**

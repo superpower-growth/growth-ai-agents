@@ -12,6 +12,118 @@
 
 ---
 
+## 🚨 COMPETITIVE MARKETING & LEGAL COMPLIANCE
+
+**CRITICAL: These rules are non-negotiable and prevent legal/trademark violations.**
+
+### ❌ PROHIBITED: Competitor Name Mentions
+
+**NEVER mention competitor brand names in ads or marketing copy:**
+- ❌ "Function charges $498"
+- ❌ "Unlike Quest Diagnostics..."
+- ❌ "Better than Function Health"
+- ❌ "What Function can't give you..."
+
+**Why:** Trademark law prohibits using competitor trademarks in a way that:
+- Could cause consumer confusion
+- Falsely suggests affiliation or endorsement
+- Disparages or mischaracterizes the competitor
+- Appears in paid advertising (Meta ads, Google ads, etc.)
+
+**Violation risk:** Cease & desist letters, trademark infringement lawsuits, ad account suspension
+
+### ✅ APPROVED: Generic Competitive Positioning
+
+**Use generic category language instead:**
+- ✅ "What could cost you $498 elsewhere is $199 here"
+- ✅ "Most testing companies charge 2-3x more"
+- ✅ "Other providers require 2 blood draws. We do 100+ biomarkers in 1."
+- ✅ "Concierge medicine can cost $10k-$100k/year"
+
+**Formula:**
+- Generic category + price point = OK
+- Competitor name + anything = NOT OK
+
+### ❌ PROHIBITED: Third-Party Content Manipulation
+
+**NEVER edit, crop, or misrepresent third-party content (Reddit, reviews, testimonials):**
+- ❌ Screenshot a Reddit post but remove/edit sentences
+- ❌ Crop out parts of reviews to change meaning
+- ❌ Modify quotes without clear [editing] brackets
+- ❌ Take someone's words out of context
+
+**Why:**
+- Misrepresentation/deceptive marketing (FTC violation)
+- Defamation risk if altered content misattributes statements
+- Breach of trust with audience (destroys credibility when exposed)
+
+**Violation risk:** FTC complaints, Reddit/platform action, loss of credibility, legal claims
+
+### ✅ APPROVED: Authentic Third-Party Content
+
+**If using Reddit/reviews/testimonials:**
+- ✅ Quote verbatim with proper attribution
+- ✅ Paraphrase clearly (don't use screenshots if paraphrasing)
+- ✅ Use [...] or [edited for clarity] if you must edit
+- ✅ Link to original source when possible
+- ✅ Get explicit permission for named testimonials
+
+**Formula:**
+- Verbatim quote + attribution = OK
+- Screenshot + editing = NOT OK
+
+### ❌ PROHIBITED: Customer Names in Marketing
+
+**NEVER use customer/guest names without explicit written consent:**
+- ❌ "Guest name being invoked in price comparison marketing"
+- ❌ "Sarah from NYC saved $300 vs Function"
+- ❌ "@username found us through biohacker forums"
+
+**Why:**
+- Privacy violations (could violate HIPAA if health-related)
+- Right of publicity violations (using someone's name/likeness for commercial gain)
+- Potential defamation if context misrepresents their views
+
+**Violation risk:** Privacy lawsuits, HIPAA violations (if health info), cease & desist
+
+### ✅ APPROVED: Anonymous Testimonials
+
+**If using customer stories:**
+- ✅ Get explicit written consent (preferably signed testimonial release)
+- ✅ Use anonymous personas ("A 34-year-old woman in Boston...")
+- ✅ Use aggregated data ("26% of members find early risk factors...")
+- ✅ Create composite personas (not representing real individuals)
+
+**Formula:**
+- Named person + consent = OK
+- Named person + no consent = NOT OK
+- Anonymous/aggregated = OK
+
+### 🚧 PROBLEMATIC: Brand Positioning Without Naming
+
+**Be careful with implied comparisons:**
+- ⚠️ "The biohackers found us" (if implying specific competitor's audience)
+- ⚠️ "Same Quest labs, half the price" (naming Quest as supplier, not competitor)
+
+**Formula:**
+- If a reasonable person could identify the competitor → risky
+- If it's clearly generic category positioning → OK
+
+### Enforcement Checklist
+
+Before publishing ANY ad or marketing copy, verify:
+
+- [ ] No competitor brand names mentioned anywhere
+- [ ] Price comparisons use generic terms ("other providers", "elsewhere")
+- [ ] All Reddit/review screenshots are unedited originals
+- [ ] Any quotes are verbatim or clearly paraphrased (no screenshots if paraphrased)
+- [ ] No customer names used without signed consent
+- [ ] Testimonials are anonymous or have written releases
+
+**If you're unsure → ask legal. NEVER publish without review.**
+
+---
+
 ## ⚠️ Core Principles
 
 - Educational first. Clear "not medical advice." No disease diagnosis or cure claims.
@@ -125,5 +237,16 @@ Compounded GLP-1 products (e.g., semaglutide/tirzepatide) are **not FDA-approved
 
 ---
 
-*Last Updated: November 20, 2025*
+## Version History
+
+- **2025-01-20**: Added Competitive Marketing & Legal Compliance section
+  - Prohibits competitor name mentions in ads (Function Health, Quest, etc.)
+  - Prohibits third-party content manipulation (Reddit screenshot editing)
+  - Prohibits customer names without consent
+  - Added enforcement checklist for legal compliance
+
+- **November 20, 2025**: Initial LegitScript peptide compliance guide
+  - FDA/FTC compliance for peptide content
+  - Compounded products disclosure requirements
+
 *Source: [Notion Page](https://www.notion.so/superpowerhealth/LegitScript-Peptide-Content-Compliance-Guide-2a78444481d08015bebbfa9ff5ccf175)*
